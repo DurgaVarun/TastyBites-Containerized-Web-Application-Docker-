@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome - TastyBites</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <style>
+    footer{
+  background-color: #8B0000;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 75px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>TastyBites Restaurant</h1>
+    <nav>
+      
+      <a href="menu.html">Menu</a>
+      <a href="About us.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="{{ url_for('home') }}">Login</a>
+      <a href="{{ url_for('register') }}">Register</a>
+
+    </nav>
+  </header>
+  <div class="welcome-section">
+    <h1>Welcome to TastyBites Restaurant</h1>
+    <a href="menu.html">Explore Our Menu</a>
+  </div>
+  <footer>
+    <p>&copy; 2025 TastyBites Restaurant. All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TastyBites - Contact</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <style>
+    footer {
+  background-color: #8B0000;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 100px;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>TastyBites Restaurant</h1>
+    <nav>
+      
+      <a href="menu.html">Menu</a>
+      <a href="About us.html">About</a>
+      <a href="Contact.html">Contact</a>
+      <a href="{{ url_for('register') }}">Register</a>
+
+    </nav>
+  </header>
+  <section>
+    <h2>Contact Us</h2>
+    <p>
+       Hyderabad,India<br>
+       +916309889519<br>
+       tastybites.in
+    </p>
+    <h3>Send us a message:</h3>
+    <form method="POST" id="contactpage">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.name.label }}<br>
+            {{ form.name(size=30 )}}<br>
+            {% for error in form.name.errors %}
+            <span style="color:red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.mail.label }}<br>
+            {{ form.mail(size=30) }}<br>
+            {% for error in form.mail.errors %}
+            <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.message.label }}<br>
+            {{ form.message(rows=5, cols=30) }}<br>
+            {% for error in form.message.errors %}
+            <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+  </section>
+  <footer>
+    <p>&copy; 2025 TastyBites Restaurant. All rights reserved.</p>
+  </footer>
+</body>
+</html>

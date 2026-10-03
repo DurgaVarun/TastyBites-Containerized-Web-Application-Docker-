@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TastyBites-Login</title>
+  <link rel="stylesheet" href="/static/style.css">
+  
+  <style>
+    footer{
+  background-color: #8B0000;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 125px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>TastyBites Restaurant</h1>
+    <nav>
+      <a href="{{ url_for('home') }}">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="About us.html">About</a>
+      <a href="Contact.html">Contact</a>
+      
+      <a href="{{ url_for('register') }}">Register</a>
+
+    </nav>
+  </header>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm" method="POST">
+      {{ form.hidden_tag() }}
+      <p>
+        {{ form.username.label }}<br>
+        {{ form.username(id="username",size=30) }}<br>
+        {% for error in form.username.errors %}
+        <span style="color: red;">[{{error}}]</span><br>
+        {% endfor %}
+      </p>
+      <p>
+        {{ form.password.label }}<br>
+        {{ form.password(id="password",size=8, autocomplete="off")}}<br>
+        {% for error in form.password.errors %}
+        <span style="color:red;">[{{ error }}]</span><br>
+        {% endfor %}
+      </p>
+      <p>{{ form.submit() }}</p>
+      {% if error %}
+  <div style="color: red; font-weight: bold; margin-bottom: 10px;">
+    {{ error }}
+  </div>
+{% endif %}
+
+ 
+    </form>
+    <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
+
+  </div>
+  <footer>
+    <p>&copy; 2025 TastyBites Restaurant. All rights reserved.</p>
+  </footer>
+  
+</body>
+</html>
