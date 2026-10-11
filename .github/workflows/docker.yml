@@ -40,7 +40,7 @@ jobs:
           context: .
           load: true
           tags: ${{ env.IMAGE }}:${{ github.sha }}
-            - name: Trivy scan
+      - name: Trivy scan
         run: |
           docker run --rm \
             -v /var/run/docker.sock:/var/run/docker.sock \
